@@ -99,6 +99,49 @@ export const siteContent = {
         "Judges evaluate impact, originality, execution, and presentation before announcing winners.",
     },
   ],
+  problemStatements: [
+    {
+      title: "Campus Smart Mobility",
+      description:
+        "Design a solution that helps students and staff optimize daily campus travel using real-time route visibility, crowd levels, and accessibility needs.",
+      track: "Smart Campus",
+    },
+    {
+      title: "Sustainable Event Operations",
+      description:
+        "Build a system that tracks and reduces waste generated during college events through actionable sustainability insights and nudges.",
+      track: "Climate Tech",
+    },
+    {
+      title: "Student Wellbeing Navigator",
+      description:
+        "Create a privacy-first platform that helps students discover mental health support, peer communities, and timely wellbeing resources.",
+      track: "Health & Wellness",
+    },
+    {
+      title: "Career Readiness Companion",
+      description:
+        "Develop an assistant that helps students map skills, discover opportunities, and build focused short-term career preparation plans.",
+      track: "EdTech",
+    },
+  ],
+  results: [
+    {
+      position: "Winner",
+      team: "Team Quantum",
+      project: "PulseGrid",
+    },
+    {
+      position: "Runner Up",
+      team: "Team Nova",
+      project: "GreenLoop",
+    },
+    {
+      position: "Second Runner Up",
+      team: "Team Orion",
+      project: "MindBridge",
+    },
+  ],
   terms: [
     "Teams should follow the announced team size and participation guidelines shared by the organizers.",
     "All submissions must be original work created during the hackathon timeline unless otherwise specified.",
@@ -143,7 +186,9 @@ export const siteContent = {
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Problems", href: "#problems" },
   { label: "Prizes", href: "#prizes" },
+  { label: "Results", href: "#results" },
   { label: "Register", href: "#register" },
   { label: "Terms", href: "#terms" },
 ];
