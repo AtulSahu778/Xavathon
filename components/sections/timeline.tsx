@@ -15,7 +15,7 @@ export function TimelineSection() {
           />
         </Reveal>
 
-        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-4">
+        <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-3">
           {siteContent.timeline.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.06}>
               <div className="panel h-full p-6">

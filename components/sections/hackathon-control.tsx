@@ -15,11 +15,14 @@ import { ResultsSection } from "@/components/sections/results-section";
 import { StatusBanner } from "@/components/sections/status-banner";
 
 export function HackathonControl() {
-  const [now, setNow] = useState(() => new Date());
+  const [nowMs, setNowMs] = useState<number | null>(null);
+  const now = useMemo(() => new Date(nowMs ?? 0), [nowMs]);
 
   useEffect(() => {
+    const updateNow = () => setNowMs(Date.now());
+    updateNow();
     const timer = window.setInterval(() => {
-      setNow(new Date());
+      updateNow();
     }, 1000);
 
     return () => {
@@ -27,17 +30,20 @@ export function HackathonControl() {
     };
   }, []);
 
-  const phase = useMemo(() => getHackathonPhase(now), [now]);
-  const countdown = useMemo(() => getCountdownTarget(now), [now]);
+  const phase = useMemo(() => (nowMs === null ? null : getHackathonPhase(now)), [now, nowMs]);
+  const countdown = useMemo(() => (nowMs === null ? null : getCountdownTarget(now)), [now, nowMs]);
 
   return (
     <>
-      <StatusBanner phase={phase} />
-      {countdown ? (
-        <CountdownTimer label={countdown.label} targetMs={countdown.targetMs} nowMs={now.getTime()} />
+      {phase ? <StatusBanner phase={phase} /> : null}
+      {countdown && nowMs !== null ? (
+        <CountdownTimer label={countdown.label} targetMs={countdown.targetMs} nowMs={nowMs} />
       ) : null}
-      <ProblemSection problems={siteContent.problemStatements} isVisible={shouldShowProblems(phase)} />
-      <ResultsSection results={siteContent.results} isVisible={shouldShowResults(phase)} />
+      <ProblemSection
+        problems={siteContent.problemStatements}
+        isVisible={phase ? shouldShowProblems(phase) : false}
+      />
+      <ResultsSection results={siteContent.results} isVisible={phase ? shouldShowResults(phase) : false} />
     </>
   );
 }

@@ -1,39 +1,37 @@
-import { siteContent } from "@/lib/site-content";
 import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#090909]">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-12 text-center lg:px-8">
         <div className="space-y-4">
-          <Logo size="md" className="h-auto w-[160px] object-contain" />
-          <p className="max-w-md text-sm leading-7 text-zinc-400">
+          <div className="flex justify-center">
+            <Logo size="md" className="h-auto w-[160px] object-contain" />
+          </div>
+          <p className="mx-auto max-w-md text-sm leading-7 text-zinc-400">
             A premium college hackathon experience powered in collaboration with IQAC and XTS,
             the Computer Science Department club.
           </p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300">Contact</h3>
-          <p className="text-sm text-zinc-400">{siteContent.footer.email}</p>
-          <p className="text-sm text-zinc-400">{siteContent.footer.phone}</p>
-          <p className="text-sm text-zinc-400">{siteContent.footer.location}</p>
-        </div>
-
-        <div className="space-y-3">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-zinc-300">Social</h3>
-          <div className="flex flex-wrap gap-3">
-            {siteContent.footer.socialLinks.map((item) => (
+          <div className="space-y-2 text-sm font-medium text-zinc-200">
+            <p>If need help, message us on WhatsApp:</p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
               <a
-                key={item.label}
-                href={item.href}
+                href="https://wa.me/918825193783"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/10 px-4 py-2 text-sm text-zinc-300 transition hover:border-white/20 hover:text-white"
+                className="rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
               >
-                {item.label}
+                +91 88251 93783
               </a>
-            ))}
+              <a
+                href="https://wa.me/918789313228"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
+              >
+                +91 878 931 3228
+              </a>
+            </div>
           </div>
         </div>
       </div>

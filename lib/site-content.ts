@@ -59,46 +59,53 @@ export const siteContent = {
   ],
   prizes: [
     {
-      title: "Winner",
-      value: "Cash Prize + Trophy",
+      title: "Participation",
+      value: "Certificate for all team members",
       description:
-        "Top-performing team with the best overall build and presentation.",
+        "Every participating team member receives an official participation certificate.",
     },
     {
-      title: "Runner Up",
-      value: "Cash Prize + Trophy",
-      description:
-        "Recognition for standout execution and clarity.",
+      title: "Volunteer Recognition",
+      value: "Volunteers certificate",
+      description: "Dedicated event volunteers receive certificates for their contributions.",
     },
     {
-      title: "Certificates & Perks",
-      value: "For all finalists",
+      title: "Top Ranks",
+      value: "1st Prize + Runner-up (2nd & 3rd) certificates",
       description:
-        "Certificates, finalist recognition, and project showcase visibility.",
+        "Winning team receives the first prize and runner-up teams (2nd and 3rd) receive certificates.",
     },
   ],
   timeline: [
     {
-      title: "Registration",
+      title: "27 April - Problem Statements Released",
       description:
-        "Students submit their team details and secure their place in the competition.",
+        "Problem statements go live and participants immediately begin building their solutions.",
     },
     {
-      title: "Shortlisting",
+      title: "28 April, 10:00 AM IST - Prototype Demonstration",
       description:
-        "Entries are reviewed and shortlisted teams move forward to the hackathon round.",
+        "Teams demonstrate their working prototype and explain the core execution approach.",
     },
     {
-      title: "Hackathon",
+      title: "29 April - Result Announcement",
       description:
-        "Teams build, iterate, and present solutions during the core Xavathon experience.",
-    },
-    {
-      title: "Results",
-      description:
-        "Judges evaluate impact, originality, execution, and presentation before announcing winners.",
+        "Final judging outcomes are shared and winners are announced.",
     },
   ],
+  shortlistingProcess: {
+    intro: "Teams will be shortlisted based on their submitted details and project idea.",
+    interview:
+      "A 5-minute interview will be conducted with each Team Leader of shortlisted teams.",
+    selectionNote:
+      "Only 13 teams will be selected from the entire Computer Science Department. Selection will be competitive, so your idea, execution, and presentation must stand out. Each team must have exactly 4 members.",
+    criteria: [
+      "Clarity of idea",
+      "Practicality",
+      "Problem-solving approach",
+      "Team understanding of the project",
+    ],
+  },
   problemStatements: [
     {
       title: "Campus Smart Mobility",
@@ -143,11 +150,13 @@ export const siteContent = {
     },
   ],
   terms: [
-    "Teams should follow the announced team size and participation guidelines shared by the organizers.",
-    "All submissions must be original work created during the hackathon timeline unless otherwise specified.",
-    "Plagiarism, unfair collaboration, or unauthorized reuse of prior work can lead to disqualification.",
-    "Judging will prioritize innovation, technical depth, usability, relevance, and presentation clarity.",
-    "Organizers reserve the right to update scheduling or participation rules if operational needs require it.",
+    "Maximum / minimum team members as defined by organizers.",
+    "Each team must have exactly 4 members (fixed).",
+    "Project should be ready for presentation (PPT + working project).",
+    "Teams must follow allotted time slots and present in the Froost Hall.",
+    "College uniform is mandatory.",
+    "Only one-time registration is allowed.",
+    "No team changes are allowed once registered.",
   ],
   faq: [
     {
@@ -171,21 +180,12 @@ export const siteContent = {
         "Projects will be reviewed on originality, practicality, technical execution, presentation, and the overall impact of the solution.",
     },
   ],
-  footer: {
-    email: "xavathon@college.edu",
-    phone: "+91 98765 43210",
-    location: "St. Xavier's Campus",
-    socialLinks: [
-      { label: "Instagram", href: "https://instagram.com" },
-      { label: "LinkedIn", href: "https://linkedin.com" },
-      { label: "Email", href: "mailto:xavathon@college.edu" },
-    ],
-  },
 };
 
 export const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Shortlisting", href: "#shortlisting" },
   { label: "Problems", href: "#problems" },
   { label: "Prizes", href: "#prizes" },
   { label: "Results", href: "#results" },

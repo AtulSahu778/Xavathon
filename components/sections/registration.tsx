@@ -11,7 +11,7 @@ export function RegistrationSection() {
           <SectionHeading
             eyebrow="Registration"
             title="Lock in your spot at Xavathon"
-            description="Registrations are collected through the official Google Form for a smooth, reliable signup experience."
+            description="Registrations are live now. Submit your form early to secure your team slot before the final shortlist."
           />
         </Reveal>
         <Reveal delay={0.1}>
