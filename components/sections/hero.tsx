@@ -29,13 +29,13 @@ export function HeroSection() {
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
             <a
               href={siteContent.hero.primaryCta.href}
-              className="inline-flex items-center justify-center rounded-full border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-7 py-3 text-sm font-bold text-black shadow-[0_12px_32px_rgba(249,115,22,0.45)] transition hover:scale-[1.02] hover:shadow-[0_16px_42px_rgba(249,115,22,0.55)]"
+              className="btn-premium inline-flex items-center justify-center rounded-full border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-7 py-3 text-sm font-bold text-black shadow-[0_12px_32px_rgba(249,115,22,0.45)] transition hover:scale-[1.02] hover:shadow-[0_16px_42px_rgba(249,115,22,0.55)]"
             >
               {siteContent.hero.primaryCta.label} - Limited Slots
             </a>
             <a
               href={siteContent.hero.secondaryCta.href}
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 hover:border-white/20 hover:bg-white/8 hover:text-white"
+              className="btn-premium inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-zinc-200 hover:border-white/20 hover:bg-white/8 hover:text-white"
             >
               {siteContent.hero.secondaryCta.label}
             </a>

@@ -56,8 +56,8 @@ export function Navbar() {
 
         <div className="hidden md:block">
           <a
-            href="#register"
-            className="rounded-full border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-5 py-2 text-sm font-bold text-black shadow-[0_10px_30px_rgba(249,115,22,0.45)] transition hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(249,115,22,0.55)]"
+            href="#register-form"
+            className="btn-premium rounded-full border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-5 py-2 text-sm font-bold text-black shadow-[0_10px_30px_rgba(249,115,22,0.45)] transition hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(249,115,22,0.55)]"
           >
             Register Now
           </a>
@@ -67,7 +67,7 @@ export function Navbar() {
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((value) => !value)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden"
+          className="btn-premium inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden"
         >
           <span className="text-xl">{isOpen ? "×" : "☰"}</span>
         </button>
@@ -84,9 +84,9 @@ export function Navbar() {
           >
             <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5">
               <a
-                href="#register"
-                onClick={(event) => handleMobileNavClick(event, "#register")}
-                className="rounded-2xl border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-4 py-3 text-center text-sm font-bold text-black shadow-[0_10px_28px_rgba(249,115,22,0.4)]"
+                href="#register-form"
+                onClick={(event) => handleMobileNavClick(event, "#register-form")}
+                className="btn-premium rounded-2xl border border-orange-300/70 bg-linear-to-r from-orange-500 to-amber-400 px-4 py-3 text-center text-sm font-bold text-black shadow-[0_10px_28px_rgba(249,115,22,0.4)]"
               >
                 Register Now
               </a>
@@ -95,7 +95,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={(event) => handleMobileNavClick(event, link.href)}
-                  className="rounded-2xl border border-white/5 bg-white/5 px-4 py-3 text-sm text-zinc-200"
+                  className="btn-premium rounded-2xl border border-white/5 bg-white/5 px-4 py-3 text-sm text-zinc-200"
                 >
                   {link.label}
                 </a>

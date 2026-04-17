@@ -60,8 +60,8 @@ export function getStatusLabel(phase: HackathonPhase) {
   const labels: Record<HackathonPhase, string> = {
     registration: "Registration Phase",
     problemReleased: "Problem Statements Released - Build Phase Live",
-    live: "Prototype Demonstration Day",
-    resultsAnnounced: "Results Announced",
+    live: "Idea Presentation Day",
+    resultsAnnounced: "Final Project Demonstration and Results",
     completed: "Hackathon Completed",
   };
 
@@ -79,13 +79,13 @@ export function getCountdownTarget(now = new Date()) {
   }
   if (nowMs < hackathonStartMs) {
     return {
-      label: "Prototype demonstration day in",
+      label: "Idea presentation day in",
       targetMs: hackathonStartMs,
     };
   }
   if (nowMs < resultsStartMs) {
     return {
-      label: "Results announcement in",
+      label: "Final project demonstration and results in",
       targetMs: resultsStartMs,
     };
   }

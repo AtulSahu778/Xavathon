@@ -1,14 +1,14 @@
 export const siteContent = {
   eventName: "Xavathon",
-  shortTag: "Code. Create. Compete.",
+  shortTag: "Ignite the Future with Code",
   hero: {
     eyebrow: "24-hour college hackathon",
     title: "XAVATHON",
     description:
-      "A focused college hackathon for teams who want to build fast, present clearly, and ship something real.",
+      "Welcome to Xavathon, the flagship hackathon organized by St. Xavier's College, Ranchi. This is your opportunity to showcase your creativity, problem-solving ability, and technical expertise by building innovative solutions to real-world challenges.",
     primaryCta: {
       label: "Register Now",
-      href: "#register",
+      href: "#register-form",
     },
     secondaryCta: {
       label: "Explore Details",
@@ -59,22 +59,18 @@ export const siteContent = {
   ],
   prizes: [
     {
-      title: "Participation",
-      value: "Certificate for all team members",
-      description:
-        "Every participating team member receives an official participation certificate.",
-    },
-    {
-      title: "Volunteer Recognition",
-      value: "Volunteers certificate",
-      description: "Dedicated event volunteers receive certificates for their contributions.",
-    },
-    {
       title: "Top Ranks",
       value: "1st Prize + Runner-up (2nd & 3rd) certificates",
       description:
         "Winning team receives the first prize and runner-up teams (2nd and 3rd) receive certificates.",
     },
+    {
+      title: "Participation",
+      value: "Certificate for all team members",
+      description:
+        "Every participating team member receives an official participation certificate.",
+    },
+    
   ],
   timeline: [
     {
@@ -83,14 +79,14 @@ export const siteContent = {
         "Problem statements go live and participants immediately begin building their solutions.",
     },
     {
-      title: "28 April, 10:00 AM IST - Prototype Demonstration",
+      title: "28 April - Idea Presentation (Reporting 9:30 AM, Starts 10:00 AM IST)",
       description:
-        "Teams demonstrate their working prototype and explain the core execution approach.",
+        "Participants must report by 9:30 AM and be ready at 10:00 AM with their team members and PPT to present their idea.",
     },
     {
-      title: "29 April - Result Announcement",
+      title: "29 April - Final Project Demonstration and Results",
       description:
-        "Final judging outcomes are shared and winners are announced.",
+        "Teams present their final project demonstrations and the results are announced.",
     },
   ],
   shortlistingProcess: {
@@ -98,7 +94,7 @@ export const siteContent = {
     interview:
       "A 5-minute interview will be conducted with each Team Leader of shortlisted teams.",
     selectionNote:
-      "Only 13 teams will be selected from the entire Computer Science Department. Selection will be competitive, so your idea, execution, and presentation must stand out. Each team must have exactly 4 members.",
+      "Only 11 teams will be selected from the entire Computer Science Department. Selection will be competitive, so your idea, execution, and presentation must stand out. Each team must have exactly 5 members.",
     criteria: [
       "Clarity of idea",
       "Practicality",
@@ -151,7 +147,7 @@ export const siteContent = {
   ],
   terms: [
     "Maximum / minimum team members as defined by organizers.",
-    "Each team must have exactly 4 members (fixed).",
+    "Each team must have exactly 5 members (fixed).",
     "Project should be ready for presentation (PPT + working project).",
     "Teams must follow allotted time slots and present in the Froost Hall.",
     "College uniform is mandatory.",

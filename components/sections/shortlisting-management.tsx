@@ -10,7 +10,7 @@ export function ShortlistingManagementSection() {
           <SectionHeading
             eyebrow="Shortlisting Process"
             title="How teams are shortlisted"
-            description="Selection includes a short interview round and review against core evaluation criteria."
+            description="Selection includes a short interview round."
           />
         </Reveal>
 
@@ -24,17 +24,6 @@ export function ShortlistingManagementSection() {
               {siteContent.shortlistingProcess.selectionNote}
             </p>
 
-            <p className="mt-6 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-400">
-              Final selection is based on
-            </p>
-            <ul className="mt-4 space-y-2">
-              {siteContent.shortlistingProcess.criteria.map((criterion) => (
-                <li key={criterion} className="flex items-start gap-3 text-sm leading-7 text-zinc-300">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-white/70" />
-                  <span>{criterion}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </Reveal>
       </div>

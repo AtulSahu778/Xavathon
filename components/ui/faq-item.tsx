@@ -16,7 +16,7 @@ export function FaqItem({ question, answer }: FaqItemProps) {
       <button
         type="button"
         onClick={() => setIsOpen((value) => !value)}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        className="btn-premium flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
         aria-expanded={isOpen}
       >
         <span className="text-base font-medium text-white sm:text-lg">{question}</span>

@@ -19,7 +19,7 @@ export function Footer() {
                 href="https://wa.me/918825193783"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
+                className="btn-premium rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
               >
                 +91 88251 93783
               </a>
@@ -27,11 +27,20 @@ export function Footer() {
                 href="https://wa.me/918789313228"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
+                className="btn-premium rounded-full border border-white/15 px-4 py-2 text-sm text-zinc-200 hover:border-white/30 hover:text-white"
               >
                 +91 878 931 3228
               </a>
             </div>
+            <p className="pt-1 text-zinc-300">
+              Official Email:{" "}
+              <a
+                href="mailto:xavathon@sxcran.org"
+                className="underline decoration-white/30 underline-offset-4 hover:text-white"
+              >
+                xavathon@sxcran.org
+              </a>
+            </p>
           </div>
         </div>
       </div>
