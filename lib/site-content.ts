@@ -149,7 +149,7 @@ export const siteContent = {
     "Maximum / minimum team members as defined by organizers.",
     "Each team must have exactly 5 members (fixed).",
     "Project should be ready for presentation (PPT + working project).",
-    "Teams must follow allotted time slots and present in the Froost Hall.",
+    "Teams must follow allotted time slots and present in the Proost Hall.",
     "College uniform is mandatory.",
     "Only one-time registration is allowed.",
     "No team changes are allowed once registered.",
