@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
+
 import { siteContent } from "@/lib/site-content";
-import { Logo } from "@/components/ui/logo";
 import { Reveal } from "@/components/ui/reveal";
 
 export function HeroSection() {
@@ -13,16 +14,18 @@ export function HeroSection() {
 
       <div className="mx-auto max-w-7xl">
         <Reveal className="space-y-6 text-center">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <Logo size="lg" priority className="h-auto w-[420px] object-contain sm:w-[480px] lg:w-[580px]" />
-            <div className="space-y-2">
-              <p className="text-sm font-bold tracking-[0.15em] text-white uppercase">
-                Ignite the Future with Code
-              </p>
-              <p className="text-[10px] font-medium tracking-[0.05em] text-zinc-500 uppercase">
-                In Association with IQAC and XTS
-              </p>
-            </div>
+          <div className="flex flex-col items-center justify-center gap-1">
+            <Image
+              src="/heroxavathon.png"
+              alt="Xavathon"
+              width={720}
+              height={300}
+              priority
+              className="mb-3 h-auto w-full max-w-xl"
+            />
+            <p className="text-sm font-medium tracking-wide text-zinc-300 -mt-1">
+              A premium college hackathon, initiative in association with IQAC and XTS.
+            </p>
           </div>
 
 
@@ -41,6 +44,7 @@ export function HeroSection() {
               {siteContent.hero.secondaryCta.label}
             </a>
           </div>
+
         </Reveal>
       </div>
     </section>

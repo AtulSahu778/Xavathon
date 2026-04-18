@@ -7,9 +7,9 @@ type LogoProps = {
 };
 
 const sizeMap = {
-  sm: { width: 110, height: 40 },
-  md: { width: 160, height: 58 },
-  lg: { width: 640, height: 232 },
+  sm: { width: 110, height: 35 },
+  md: { width: 160, height: 50 },
+  lg: { width: 640, height: 200 },
 };
 
 export function Logo({ className, priority = false, size = "md" }: LogoProps) {
