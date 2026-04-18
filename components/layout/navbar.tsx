@@ -40,9 +40,6 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <a href="#home" className="inline-flex items-center gap-3">
           <Logo size="sm" priority className="h-auto w-[110px] object-contain" />
-          <span className="hidden text-[10px] font-semibold tracking-widest text-zinc-500 uppercase lg:block">
-            Ignite the Future with Code
-          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">
