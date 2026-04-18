@@ -146,7 +146,11 @@ export function RegistrationForm() {
     const isStepValid = await trigger(fieldsToValidate as never);
     if (isStepValid) {
       setStep((s) => s + 1);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const formEl = document.getElementById("register-form");
+      if (formEl) {
+        const top = formEl.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+      }
     } else {
       toast.error("Please fix the errors before proceeding.");
     }
@@ -154,7 +158,11 @@ export function RegistrationForm() {
 
   const prevStep = () => {
     setStep((s) => s - 1);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const formEl = document.getElementById("register-form");
+    if (formEl) {
+      const top = formEl.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    }
   };
 
   const onSubmit = async (data: HackathonFormData) => {
@@ -185,10 +193,7 @@ export function RegistrationForm() {
       const result = (await response.json()) as { ok?: boolean; message?: string };
 
       if (response.ok && result.ok) {
-        toast.success("Registration successful! Redirecting to the official WhatsApp group...");
-        setTimeout(() => {
-          window.location.href = "https://chat.whatsapp.com/JajPdHZNXFqF9J3tbn5mTu?mode=gi_t";
-        }, 1500);
+        window.location.href = "https://chat.whatsapp.com/JajPdHZNXFqF9J3tbn5mTu?mode=gi_t";
       } else {
         toast.error(result.message || "Something went wrong.");
       }
