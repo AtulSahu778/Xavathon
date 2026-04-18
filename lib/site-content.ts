@@ -1,8 +1,8 @@
 export const siteContent = {
-  eventName: "Xavathon",
+  eventName: "Xavathon – Ignite the Future with Code",
   shortTag: "Ignite the Future with Code",
   hero: {
-    eyebrow: "24-hour college hackathon",
+    eyebrow: "Xavathon – Ignite the Future with Code",
     title: "XAVATHON",
     description:
       "Welcome to Xavathon, the flagship hackathon organized by St. Xavier's College, Ranchi. This is your opportunity to showcase your creativity, problem-solving ability, and technical expertise by building innovative solutions to real-world challenges.",
@@ -21,9 +21,9 @@ export const siteContent = {
     ],
   },
   collaboration: {
-    title: "Built in collaboration with IQAC and XTS",
+    title: "Built in Association with IQAC and XTS",
     description:
-      "Presented with the support of IQAC and XTS (Computer Science Department club) to create a high-impact platform for student builders.",
+      "Presented with the support of IQAC and XTS (Computer Science Department) to create a high-impact platform for student builders.",
     highlights: [
       "Premium campus-wide innovation showcase",
       "Hands-on mentorship from faculty and technical leads",
@@ -70,11 +70,11 @@ export const siteContent = {
       description:
         "Every participating team member receives an official participation certificate.",
     },
-    
+
   ],
   timeline: [
     {
-      title: "27 April - Problem Statements Released",
+      title: "Problem Statements Released",
       description:
         "Problem statements go live and participants immediately begin building their solutions.",
     },
@@ -185,6 +185,6 @@ export const navLinks = [
   { label: "Problems", href: "#problems" },
   { label: "Prizes", href: "#prizes" },
   { label: "Results", href: "#results" },
-  { label: "Register", href: "#register" },
+  { label: "Register", href: "#register-form" },
   { label: "Terms", href: "#terms" },
 ];

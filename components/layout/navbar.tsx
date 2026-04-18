@@ -38,8 +38,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#0b0b0b]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#home" className="inline-flex items-center">
+        <a href="#home" className="inline-flex items-center gap-3">
           <Logo size="sm" priority className="h-auto w-[110px] object-contain" />
+          <span className="hidden text-[10px] font-semibold tracking-widest text-zinc-500 uppercase lg:block">
+            Ignite the Future with Code
+          </span>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

@@ -8,7 +8,7 @@ export function FeaturesSection() {
       <div className="mx-auto max-w-7xl space-y-10">
         <Reveal>
           <SectionHeading
-            eyebrow="Why Participate"
+            eyebrow="Why to Participate"
             title="Simple. Focused. Competitive."
             description="Clear tracks, mentor support, and a polished final showcase — without unnecessary complexity."
             align="center"

@@ -9,8 +9,7 @@ export function Footer() {
             <Logo size="md" className="h-auto w-[160px] object-contain" />
           </div>
           <p className="mx-auto max-w-md text-sm leading-7 text-zinc-400">
-            A premium college hackathon experience powered in collaboration with IQAC and XTS,
-            the Computer Science Department club.
+            A premium college hackathon, initiative in association with IQAC and XTS.
           </p>
           <div className="space-y-2 text-sm font-medium text-zinc-200">
             <p>If need help, message us on WhatsApp:</p>
@@ -45,7 +44,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/5 px-6 py-5 text-center text-xs text-zinc-500 lg:px-8">
-        Crafted for Xavathon. Credits: IQAC + XTS.
+        Crafted for Xavathon – Ignite the Future with Code. Credits: IQAC + XTS.
       </div>
     </footer>
   );

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xavathon.vercel.app"),
-  title: "Xavathon | Premium College Hackathon",
+  title: "Xavathon – Ignite the Future with Code",
   description:
     "Xavathon is a premium, modern college hackathon experience featuring prizes, certificates, collaboration with IQAC and XTS, and registration powered by Google Sheets.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     apple: "/Xavathon.png",
   },
   openGraph: {
-    title: "Xavathon | Premium College Hackathon",
+    title: "Xavathon – Ignite the Future with Code",
     description:
       "Build, compete, and showcase bold ideas at Xavathon, a premium futuristic hackathon experience for student innovators.",
     type: "website",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xavathon | Premium College Hackathon",
+    title: "Xavathon – Ignite the Future with Code",
     description:
       "A premium futuristic landing page for a college hackathon with registration, prizes, and event details.",
     images: ["/opengraph-image"],

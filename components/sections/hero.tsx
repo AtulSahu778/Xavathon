@@ -6,25 +6,26 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function HeroSection() {
   return (
-    <section id="home" className="relative overflow-hidden px-6 pt-16 pb-10 lg:px-8 lg:pt-20 lg:pb-12">
+    <section id="home" className="relative overflow-hidden px-6 pt-8 pb-4 lg:px-8 lg:pt-10 lg:pb-6">
       <div className="hero-orb hero-orb-blue" />
       <div className="hero-orb hero-orb-green" />
       <div className="hero-orb hero-orb-orange" />
 
       <div className="mx-auto max-w-7xl">
-        <Reveal className="space-y-7 text-center">
-          <div className="flex justify-center">
-            <Logo size="lg" priority className="h-auto w-[300px] object-contain sm:w-[420px] lg:w-[520px]" />
+        <Reveal className="space-y-6 text-center">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <Logo size="lg" priority className="h-auto w-[360px] object-contain sm:w-[420px] lg:w-[520px]" />
+            <div className="space-y-2">
+              <p className="text-sm font-bold tracking-[0.15em] text-white uppercase">
+                Ignite the Future with Code
+              </p>
+              <p className="text-[10px] font-medium tracking-[0.05em] text-zinc-500 uppercase">
+                In Association with IQAC and XTS
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-              Build. Pitch. <span className="text-white/90">Win.</span>
-            </h1>
-            <p className="mx-auto max-w-xl text-base leading-8 text-zinc-400 sm:text-lg">
-              A clean, focused hackathon experience for student teams ready to ship strong ideas.
-            </p>
-          </div>
+
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center">
             <a

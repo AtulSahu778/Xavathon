@@ -58,7 +58,7 @@ export function getHackathonPhase(now = new Date()): HackathonPhase {
 
 export function getStatusLabel(phase: HackathonPhase) {
   const labels: Record<HackathonPhase, string> = {
-    registration: "Registration Phase",
+    registration: "",
     problemReleased: "Problem Statements Released - Build Phase Live",
     live: "Idea Presentation Day",
     resultsAnnounced: "Final Project Demonstration and Results",
