@@ -17,7 +17,7 @@ export function AboutSection() {
         <Reveal delay={0.1}>
           <div className="panel p-7 sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-zinc-300">
-              Association
+              Collaboration
             </p>
             <h3 className="mt-4 text-2xl font-semibold text-white">{siteContent.collaboration.title}</h3>
             <p className="mt-4 text-base leading-8 text-zinc-400">{siteContent.collaboration.description}</p>

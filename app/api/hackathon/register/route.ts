@@ -109,6 +109,7 @@ export async function POST(request: Request) {
       participants: (body.participants ?? []).map((p) => ({
         ...p,
         phone: normalizePhone(p?.phone),
+        collegeName: "St. Xavier's College, Ranchi",
       })),
     };
 
@@ -141,7 +142,7 @@ export async function POST(request: Request) {
       leaderName: normalized.leaderName,
       leaderEmail: normalized.leaderEmail,
       leaderPhone: normalized.leaderPhone,
-
+      collegeName: "St. Xavier's College, Ranchi",
       department: normalized.department,
       semester: normalized.semester,
       teamSize: normalized.teamSize,

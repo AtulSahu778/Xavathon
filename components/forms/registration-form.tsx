@@ -185,9 +185,10 @@ export function RegistrationForm() {
       const result = (await response.json()) as { ok?: boolean; message?: string };
 
       if (response.ok && result.ok) {
-        toast.success("Registration successful!");
-        reset(defaultValues);
-        setStep(1);
+        toast.success("Registration successful! Redirecting to the official WhatsApp group...");
+        setTimeout(() => {
+          window.location.href = "https://chat.whatsapp.com/JajPdHZNXFqF9J3tbn5mTu?mode=gi_t";
+        }, 1500);
       } else {
         toast.error(result.message || "Something went wrong.");
       }
@@ -242,6 +243,7 @@ export function RegistrationForm() {
                   label="Team name"
                   id="teamName"
                   placeholder="Enter team name"
+                  required
                   error={errors.teamName?.message}
                   {...register("teamName", { required: "Team name is required" })}
                 />
@@ -249,6 +251,7 @@ export function RegistrationForm() {
                   label="Team leader name"
                   id="leaderName"
                   placeholder="Full name"
+                  required
                   error={errors.leaderName?.message}
                   {...register("leaderName", { required: "Leader name is required" })}
                 />
@@ -257,6 +260,7 @@ export function RegistrationForm() {
                   id="leaderEmail"
                   type="email"
                   placeholder="email@example.com"
+                  required
                   error={errors.leaderEmail?.message}
                   {...register("leaderEmail", {
                     required: "Email is required",
@@ -264,9 +268,10 @@ export function RegistrationForm() {
                   })}
                 />
                 <InputGroup
-                  label="Leader phone (10 digits)"
+                  label="Leader mobile no."
                   id="leaderPhone"
-                  placeholder="9876543210"
+                  placeholder="Mobile no."
+                  required
                   inputMode="numeric"
                   maxLength={10}
                   error={errors.leaderPhone?.message}
@@ -280,6 +285,7 @@ export function RegistrationForm() {
                   label="Department / course"
                   id="department"
                   placeholder="e.g. Computer Science"
+                  required
                   error={errors.department?.message}
                   {...register("department", { required: "Department is required" })}
                 />
@@ -287,6 +293,7 @@ export function RegistrationForm() {
                   label="Year / semester"
                   id="semester"
                   placeholder="e.g. 3rd year / 6th sem"
+                  required
                   error={errors.semester?.message}
                   {...register("semester", { required: "Semester is required" })}
                 />
@@ -329,6 +336,7 @@ export function RegistrationForm() {
                         label="Full name"
                         id={`participants.${index}.fullName`}
                         placeholder="Name"
+                        required
                         error={errors.participants?.[index]?.fullName?.message}
                         {...register(`participants.${index}.fullName`, {
                           required: "Full name is required",
@@ -339,6 +347,7 @@ export function RegistrationForm() {
                         id={`participants.${index}.email`}
                         type="email"
                         placeholder="email@example.com"
+                        required
                         error={errors.participants?.[index]?.email?.message}
                         {...register(`participants.${index}.email`, {
                           required: "Email is required",
@@ -346,9 +355,10 @@ export function RegistrationForm() {
                         })}
                       />
                       <InputGroup
-                        label="Phone (10 digits)"
+                        label="Mobile no."
                         id={`participants.${index}.phone`}
-                        placeholder="9876543210"
+                        placeholder="Mobile no."
+                        required
                         inputMode="numeric"
                         maxLength={10}
                         error={errors.participants?.[index]?.phone?.message}
@@ -361,6 +371,7 @@ export function RegistrationForm() {
                         label="Class roll no."
                         id={`participants.${index}.rollNumber`}
                         placeholder="Class roll no."
+                        required
                         error={errors.participants?.[index]?.rollNumber?.message}
                         {...register(`participants.${index}.rollNumber`, {
                           required: "Class roll no. is required",
@@ -370,6 +381,7 @@ export function RegistrationForm() {
                         label="Course / department"
                         id={`participants.${index}.department`}
                         placeholder="e.g. BCA / CSE"
+                        required
                         error={errors.participants?.[index]?.department?.message}
                         {...register(`participants.${index}.department`, {
                           required: "Department is required",
@@ -400,6 +412,7 @@ export function RegistrationForm() {
                   label="Project title"
                   id="projectTitle"
                   placeholder="Project name"
+                  required
                   error={errors.projectTitle?.message}
                   {...register("projectTitle", { required: "Project title is required" })}
                 />
@@ -410,6 +423,7 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="problemStatement"
+                    required
                     rows={3}
                     placeholder="Short description of the problem you are solving"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
@@ -426,6 +440,7 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="projectDescription"
+                    required
                     rows={4}
                     placeholder="Describe your solution in detail"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
@@ -443,6 +458,7 @@ export function RegistrationForm() {
                     </label>
                     <select
                       id="domain"
+                      required
                       {...register("domain", { required: "Domain is required" })}
                       className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
                     >
@@ -457,6 +473,7 @@ export function RegistrationForm() {
                     label="Technologies used"
                     id="technologies"
                     placeholder="e.g. Next.js, FastAPI, MongoDB"
+                    required
                     error={errors.technologies?.message}
                     {...register("technologies", { required: "Technologies are required" })}
                   />
@@ -502,6 +519,7 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="whyParticipate"
+                    required
                     rows={3}
                     placeholder="Tell us about your motivation"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
