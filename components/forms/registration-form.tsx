@@ -2,7 +2,7 @@
 
 import { forwardRef, useEffect, useState } from "react";
 import type { ComponentProps } from "react";
-import { useForm, useFieldArray } from "react-hook-form";
+import { useForm, useFieldArray, useWatch } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { toast, Toaster } from "react-hot-toast";
@@ -11,15 +11,6 @@ import { cn } from "@/lib/utils";
 
 /** Xavathon rules: exactly five people per team (1 leader + 4 members). */
 const FIXED_TEAM_SIZE = 5;
-
-const DOMAINS = [
-  "AI/ML",
-  "Web Development",
-  "App Development",
-  "Cybersecurity",
-  "IoT",
-  "Open Innovation",
-] as const;
 
 type Participant = {
   fullName: string;
@@ -42,10 +33,6 @@ export type HackathonFormData = {
   projectTitle: string;
   problemStatement: string;
   projectDescription: string;
-  domain: string;
-  technologies: string;
-  githubLink?: string;
-  demoLink?: string;
   whyParticipate: string;
   participatedBefore: boolean;
   terms: boolean;
@@ -73,10 +60,6 @@ const defaultValues: HackathonFormData = {
   projectTitle: "",
   problemStatement: "",
   projectDescription: "",
-  domain: "Web Development",
-  technologies: "",
-  githubLink: "",
-  demoLink: "",
   whyParticipate: "",
   participatedBefore: false,
   terms: false,
@@ -96,6 +79,7 @@ export function RegistrationForm() {
     trigger,
     reset,
     getValues,
+    setValue,
     formState: { errors },
   } = useForm<HackathonFormData>({
     mode: "onBlur",
@@ -106,12 +90,24 @@ export function RegistrationForm() {
     control,
     name: "participants",
   });
+  const leaderName = useWatch({ control, name: "leaderName" });
+  const leaderEmail = useWatch({ control, name: "leaderEmail" });
+  const leaderPhone = useWatch({ control, name: "leaderPhone" });
+  const department = useWatch({ control, name: "department" });
 
   useEffect(() => {
     if (fields.length !== FIXED_TEAM_SIZE) {
       replace(Array.from({ length: FIXED_TEAM_SIZE }, () => emptyParticipant()));
     }
   }, [fields.length, replace]);
+
+  useEffect(() => {
+    // Keep participant 1 in sync with leader details from step 1.
+    setValue("participants.0.fullName", leaderName ?? "");
+    setValue("participants.0.email", leaderEmail ?? "");
+    setValue("participants.0.phone", phone10(leaderPhone ?? ""));
+    setValue("participants.0.department", department ?? "");
+  }, [leaderName, leaderEmail, leaderPhone, department, setValue]);
 
   const teamSize = FIXED_TEAM_SIZE;
 
@@ -134,13 +130,7 @@ export function RegistrationForm() {
     } else if (step === 2) {
       fieldsToValidate = fields.flatMap((_, index) => [...participantFieldPaths(index)] as unknown as string[]);
     } else if (step === 3) {
-      fieldsToValidate = [
-        "projectTitle",
-        "problemStatement",
-        "projectDescription",
-        "domain",
-        "technologies",
-      ];
+      fieldsToValidate = ["projectTitle", "problemStatement", "projectDescription", "whyParticipate", "terms"];
     }
 
     const isStepValid = await trigger(fieldsToValidate as never);
@@ -204,7 +194,7 @@ export function RegistrationForm() {
     }
   };
 
-  const progress = (step / 4) * 100;
+  const progress = (step / 3) * 100;
 
   return (
     <div id="register-form" className="mx-auto max-w-3xl px-1 sm:px-0">
@@ -212,7 +202,7 @@ export function RegistrationForm() {
 
       <div className="mb-10 space-y-4">
         <div className="flex justify-between text-sm font-medium text-zinc-400">
-          <span>Step {step} of 4</span>
+          <span>Step {step} of 3</span>
           <span>{Math.round(progress)}% complete</span>
         </div>
         <div className="h-2 w-full overflow-hidden rounded-full bg-white/5">
@@ -323,7 +313,9 @@ export function RegistrationForm() {
             >
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold text-white">Participant details</h2>
-                <p className="text-zinc-400">Provide details for all {teamSize} team members.</p>
+                <p className="text-zinc-400">
+                  Leader details are auto-filled from step 1. Add class roll no. for leader and full details for members.
+                </p>
               </div>
 
               <div className="space-y-8">
@@ -342,6 +334,7 @@ export function RegistrationForm() {
                         id={`participants.${index}.fullName`}
                         placeholder="Name"
                         required
+                        disabled={index === 0}
                         error={errors.participants?.[index]?.fullName?.message}
                         {...register(`participants.${index}.fullName`, {
                           required: "Full name is required",
@@ -353,6 +346,7 @@ export function RegistrationForm() {
                         type="email"
                         placeholder="email@example.com"
                         required
+                        disabled={index === 0}
                         error={errors.participants?.[index]?.email?.message}
                         {...register(`participants.${index}.email`, {
                           required: "Email is required",
@@ -364,6 +358,7 @@ export function RegistrationForm() {
                         id={`participants.${index}.phone`}
                         placeholder="Mobile no."
                         required
+                        disabled={index === 0}
                         inputMode="numeric"
                         maxLength={10}
                         error={errors.participants?.[index]?.phone?.message}
@@ -387,6 +382,7 @@ export function RegistrationForm() {
                         id={`participants.${index}.department`}
                         placeholder="e.g. BCA / CSE"
                         required
+                        disabled={index === 0}
                         error={errors.participants?.[index]?.department?.message}
                         {...register(`participants.${index}.department`, {
                           required: "Department is required",
@@ -408,8 +404,8 @@ export function RegistrationForm() {
               className="space-y-6"
             >
               <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-white">Project information</h2>
-                <p className="text-zinc-400">Describe what you plan to build.</p>
+                <h2 className="text-2xl font-bold text-white">Project details & submit</h2>
+                <p className="text-zinc-400">Describe your project and submit your registration.</p>
               </div>
 
               <div className="space-y-6">
@@ -456,68 +452,6 @@ export function RegistrationForm() {
                   ) : null}
                 </div>
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <label htmlFor="domain" className="text-sm font-medium text-zinc-300">
-                      Preferred domain
-                    </label>
-                    <select
-                      id="domain"
-                      required
-                      {...register("domain", { required: "Domain is required" })}
-                      className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
-                    >
-                      {DOMAINS.map((d) => (
-                        <option key={d} value={d} className="bg-[#121212]">
-                          {d}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <InputGroup
-                    label="Technologies used"
-                    id="technologies"
-                    placeholder="e.g. Next.js, FastAPI, MongoDB"
-                    required
-                    error={errors.technologies?.message}
-                    {...register("technologies", { required: "Technologies are required" })}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                  <InputGroup
-                    label="GitHub link (optional)"
-                    id="githubLink"
-                    placeholder="https://github.com/..."
-                    error={errors.githubLink?.message}
-                    {...register("githubLink")}
-                  />
-                  <InputGroup
-                    label="Demo link (optional)"
-                    id="demoLink"
-                    placeholder="https://..."
-                    error={errors.demoLink?.message}
-                    {...register("demoLink")}
-                  />
-                </div>
-              </div>
-            </motion.div>
-          )}
-
-          {step === 4 && (
-            <motion.div
-              key="step4"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -20 }}
-              className="space-y-6"
-            >
-              <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-white">Review & submit</h2>
-                <p className="text-zinc-400">Final questions before you submit.</p>
-              </div>
-
-              <div className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="whyParticipate" className="text-sm font-medium text-zinc-300">
                     Why do you want to participate?
@@ -569,6 +503,7 @@ export function RegistrationForm() {
                     accurate.
                   </p>
                 </div>
+
               </div>
             </motion.div>
           )}
@@ -588,7 +523,7 @@ export function RegistrationForm() {
             <div />
           )}
 
-          {step < 4 ? (
+          {step < 3 ? (
             <button
               type="button"
               onClick={nextStep}

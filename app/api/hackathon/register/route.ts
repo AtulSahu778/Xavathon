@@ -21,10 +21,6 @@ type HackathonPayload = {
   projectTitle?: string;
   problemStatement?: string;
   projectDescription?: string;
-  domain?: string;
-  technologies?: string;
-  githubLink?: string;
-  demoLink?: string;
   whyParticipate?: string;
   participatedBefore?: boolean;
   terms?: boolean;
@@ -50,8 +46,6 @@ function validatePayload(body: HackathonPayload): string | null {
     ["projectTitle", "Project title is required"],
     ["problemStatement", "Problem statement is required"],
     ["projectDescription", "Project description is required"],
-    ["domain", "Domain is required"],
-    ["technologies", "Technologies are required"],
     ["whyParticipate", "Please explain why you want to participate"],
   ];
 
@@ -150,10 +144,6 @@ export async function POST(request: Request) {
       projectTitle: normalized.projectTitle,
       problemStatement: normalized.problemStatement,
       projectDescription: normalized.projectDescription,
-      domain: normalized.domain,
-      technologies: normalized.technologies,
-      githubLink: normalized.githubLink ?? "",
-      demoLink: normalized.demoLink ?? "",
       whyParticipate: normalized.whyParticipate,
       participatedBefore: Boolean(normalized.participatedBefore),
       terms: Boolean(normalized.terms),
