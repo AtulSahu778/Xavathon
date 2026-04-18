@@ -20,6 +20,8 @@ const releaseStartMs = toIstUtcMs(
   RELEASE_DATE.year,
   RELEASE_DATE.monthIndex,
   RELEASE_DATE.day,
+  0,
+  1,
 );
 const hackathonStartMs = toIstUtcMs(
   HACKATHON_DATE.year,
