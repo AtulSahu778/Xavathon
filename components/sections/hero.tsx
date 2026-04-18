@@ -14,7 +14,7 @@ export function HeroSection() {
       <div className="mx-auto max-w-7xl">
         <Reveal className="space-y-6 text-center">
           <div className="flex flex-col items-center justify-center gap-4">
-            <Logo size="lg" priority className="h-auto w-[360px] object-contain sm:w-[420px] lg:w-[520px]" />
+            <Logo size="lg" priority className="h-auto w-[420px] object-contain sm:w-[480px] lg:w-[580px]" />
             <div className="space-y-2">
               <p className="text-sm font-bold tracking-[0.15em] text-white uppercase">
                 Ignite the Future with Code
