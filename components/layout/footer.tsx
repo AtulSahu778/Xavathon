@@ -43,7 +43,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/5 px-6 py-5 text-center text-xs text-zinc-500 lg:px-8">
     </footer>
   );
 }
