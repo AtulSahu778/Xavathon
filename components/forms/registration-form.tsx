@@ -34,6 +34,9 @@ export type HackathonFormData = {
   problemStatement: string;
   projectDescription: string;
   whyParticipate: string;
+  
+  projectFile?: FileList;
+
   participatedBefore: boolean;
   terms: boolean;
   website?: string;
@@ -414,7 +417,7 @@ export function RegistrationForm() {
                   id="projectTitle"
                   placeholder="Project name"
                   error={errors.projectTitle?.message}
-                  {...register("projectTitle", { required: "Project title is required" })}
+                  {...register("projectTitle",)}
                 />
 
                 <div className="space-y-2">
@@ -426,7 +429,7 @@ export function RegistrationForm() {
                     rows={3}
                     placeholder="Short description of the problem you are solving"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
-                    {...register("problemStatement", { required: "Problem statement is required" })}
+                    {...register("problemStatement")}
                   />
                   {errors.problemStatement ? (
                     <p className="text-xs text-red-400">{errors.problemStatement.message}</p>
@@ -442,7 +445,7 @@ export function RegistrationForm() {
                     rows={4}
                     placeholder="Describe your solution in detail"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
-                    {...register("projectDescription", { required: "Project description is required" })}
+                    {...register("projectDescription")}
                   />
                   {errors.projectDescription ? (
                     <p className="text-xs text-red-400">{errors.projectDescription.message}</p>
@@ -455,11 +458,11 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="whyParticipate"
-                    required
+
                     rows={3}
                     placeholder="Tell us about your motivation"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
-                    {...register("whyParticipate", { required: "Please tell us why" })}
+                    {...register("whyParticipate")}
                   />
                   {errors.whyParticipate ? (
                     <p className="text-xs text-red-400">{errors.whyParticipate.message}</p>
