@@ -34,9 +34,6 @@ export type HackathonFormData = {
   problemStatement: string;
   projectDescription: string;
   whyParticipate: string;
-  
-  projectFile?: FileList;
-
   participatedBefore: boolean;
   terms: boolean;
   website?: string;
