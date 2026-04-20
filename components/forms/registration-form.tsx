@@ -413,7 +413,6 @@ export function RegistrationForm() {
                   label="Project title"
                   id="projectTitle"
                   placeholder="Project name"
-                  required
                   error={errors.projectTitle?.message}
                   {...register("projectTitle", { required: "Project title is required" })}
                 />
@@ -424,7 +423,6 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="problemStatement"
-                    required
                     rows={3}
                     placeholder="Short description of the problem you are solving"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
@@ -441,7 +439,6 @@ export function RegistrationForm() {
                   </label>
                   <textarea
                     id="projectDescription"
-                    required
                     rows={4}
                     placeholder="Describe your solution in detail"
                     className="w-full rounded-2xl border border-white/10 bg-white/5 p-3 text-white outline-none focus:border-orange-500/50"
