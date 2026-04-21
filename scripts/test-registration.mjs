@@ -54,7 +54,6 @@ const demoPayload = {
   whyParticipate: "To build a real solution for college students and learn from mentors.",
   participatedBefore: true,
   terms: true,
-  website: "",
 };
 
 async function run() {

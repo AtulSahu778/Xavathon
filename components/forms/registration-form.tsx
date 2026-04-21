@@ -36,7 +36,6 @@ export type HackathonFormData = {
   whyParticipate: string;
   participatedBefore: boolean;
   terms: boolean;
-  website?: string;
 };
 
 const emptyParticipant = (): Participant => ({
@@ -63,7 +62,6 @@ const defaultValues: HackathonFormData = {
   whyParticipate: "",
   participatedBefore: false,
   terms: false,
-  website: "",
 };
 
 const phone10 = (v: string) => v.replace(/\D/g, "").slice(0, 10);
@@ -229,7 +227,6 @@ export function RegistrationForm() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
         <input type="hidden" {...register("teamSize", { valueAsNumber: true })} />
-        <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden {...register("website")} />
 
         <AnimatePresence mode="wait">
           {step === 1 && (

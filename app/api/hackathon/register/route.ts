@@ -24,7 +24,6 @@ type HackathonPayload = {
   whyParticipate?: string;
   participatedBefore?: boolean;
   terms?: boolean;
-  website?: string;
 };
 
 const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -96,10 +95,6 @@ function validatePayload(body: HackathonPayload): string | null {
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as HackathonPayload;
-
-    if (body.website?.trim()) {
-      return NextResponse.json({ ok: true });
-    }
 
     const normalized: HackathonPayload = {
       ...body,
