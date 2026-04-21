@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/ui/reveal";
-import { RegistrationForm } from "@/components/forms/registration-form";
+
 
 const guidelines = [
   "Team leader is required; additional team members are optional (up to 5 total)",
@@ -82,7 +82,6 @@ export function RegistrationSection() {
                 <p className="truncate text-sm font-semibold text-white">Official registration</p>
               </div>
               <div className="p-4 sm:p-6">
-                <RegistrationForm />
               </div>
             </div>
           </Reveal>

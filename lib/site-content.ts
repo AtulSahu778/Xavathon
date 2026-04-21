@@ -8,7 +8,7 @@ export const siteContent = {
       "Welcome to Xavathon, the flagship hackathon organized by St. Xavier's College, Ranchi. This is your opportunity to showcase your creativity, problem-solving ability, and technical expertise by building innovative solutions to real-world challenges.",
     primaryCta: {
       label: "Register Now",
-      href: "#register-form",
+      href: "https://forms.gle/XSRno9yPNGzZ35VZ8",
     },
     secondaryCta: {
       label: "Explore Details",

@@ -6,7 +6,6 @@ import { FeaturesSection } from "@/components/sections/features";
 import { HeroSection } from "@/components/sections/hero";
 import { HackathonControl } from "@/components/sections/hackathon-control";
 import { PrizesSection } from "@/components/sections/prizes";
-import { RegistrationSection } from "@/components/sections/registration";
 import { TermsSection } from "@/components/sections/terms";
 import { TimelineSection } from "@/components/sections/timeline";
 
@@ -21,7 +20,6 @@ export default function Home() {
         <FeaturesSection />
         <PrizesSection />
         <TimelineSection />
-        <RegistrationSection />
         <TermsSection />
         <FaqSection />
       </main>
