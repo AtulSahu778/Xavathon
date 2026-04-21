@@ -64,13 +64,17 @@ function validatePayload(body: HackathonPayload): string | null {
   }
 
   const size = Number(body.teamSize);
-  if (size !== 5) {
-    return "Team size must be 5";
+  if (!Number.isFinite(size) || size < 1 || size > 5) {
+    return "Team size must be between 1 and 5";
   }
 
   const participants = body.participants ?? [];
-  if (participants.length !== 5) {
-    return "Exactly 5 participants are required";
+  if (participants.length < 1 || participants.length > 5) {
+    return "Participants must be between 1 and 5";
+  }
+
+  if (participants.length !== size) {
+    return "Team size must match participant count";
   }
 
   for (let i = 0; i < participants.length; i++) {

@@ -94,7 +94,7 @@ export const siteContent = {
     interview:
       "A 5-minute interview will be conducted with each Team Leader of shortlisted teams.",
     selectionNote:
-      "Only 11 teams will be selected from the entire Computer Science Department. Selection will be competitive, so your idea, execution, and presentation must stand out. Each team must have exactly 5 members.",
+      "Only 11 teams will be selected from the entire Computer Science Department. Selection will be competitive, so your idea, execution, and presentation must stand out. Team leader is required; additional members are optional (up to 5 total).",
     criteria: [
       "Clarity of idea",
       "Practicality",
@@ -147,7 +147,8 @@ export const siteContent = {
   ],
   terms: [
     "Maximum / minimum team members as defined by organizers.",
-    "Each team must have exactly 5 members (fixed).",
+    "Team leader is mandatory; additional members are optional up to 5 total members.",
+    "Participants may use AI tools to ideate, build, and improve their solutions.",
     "Project should be ready for presentation (PPT + working project).",
     "Teams must follow allotted time slots and present in the Proost Hall.",
     "College uniform is mandatory.",

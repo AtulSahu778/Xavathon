@@ -9,8 +9,8 @@ import { toast, Toaster } from "react-hot-toast";
 
 import { cn } from "@/lib/utils";
 
-/** Xavathon rules: exactly five people per team (1 leader + 4 members). */
-const FIXED_TEAM_SIZE = 5;
+/** Xavathon rules: leader required, up to 5 total members. */
+const MAX_TEAM_SIZE = 5;
 
 type Participant = {
   fullName: string;
@@ -55,8 +55,8 @@ const defaultValues: HackathonFormData = {
 
   department: "",
   semester: "",
-  teamSize: FIXED_TEAM_SIZE,
-  participants: Array.from({ length: FIXED_TEAM_SIZE }, () => emptyParticipant()),
+  teamSize: 1,
+  participants: Array.from({ length: MAX_TEAM_SIZE }, () => emptyParticipant()),
   projectTitle: "",
   problemStatement: "",
   projectDescription: "",
@@ -96,8 +96,8 @@ export function RegistrationForm() {
   const department = useWatch({ control, name: "department" });
 
   useEffect(() => {
-    if (fields.length !== FIXED_TEAM_SIZE) {
-      replace(Array.from({ length: FIXED_TEAM_SIZE }, () => emptyParticipant()));
+    if (fields.length !== MAX_TEAM_SIZE) {
+      replace(Array.from({ length: MAX_TEAM_SIZE }, () => emptyParticipant()));
     }
   }, [fields.length, replace]);
 
@@ -109,7 +109,7 @@ export function RegistrationForm() {
     setValue("participants.0.department", department ?? "");
   }, [leaderName, leaderEmail, leaderPhone, department, setValue]);
 
-  const teamSize = FIXED_TEAM_SIZE;
+  const teamSize = MAX_TEAM_SIZE;
 
   const participantFieldPaths = (index: number) =>
     (["fullName", "email", "phone", "rollNumber", "department"] as const).map(
@@ -156,9 +156,24 @@ export function RegistrationForm() {
   };
 
   const onSubmit = async (data: HackathonFormData) => {
-    const rows = (getValues("participants") ?? data.participants).slice(0, FIXED_TEAM_SIZE);
-    if (rows.length !== FIXED_TEAM_SIZE) {
-      toast.error(`Exactly ${FIXED_TEAM_SIZE} team members are required.`);
+    const rows = (getValues("participants") ?? data.participants).slice(0, MAX_TEAM_SIZE);
+    const sanitizedRows = rows
+      .map((p) => ({
+        ...p,
+        fullName: p.fullName.trim(),
+        email: p.email.trim(),
+        phone: phone10(p.phone),
+        rollNumber: p.rollNumber.trim(),
+        department: p.department.trim(),
+      }))
+      .filter(
+        (p, idx) =>
+          idx === 0 ||
+          Boolean(p.fullName || p.email || p.phone || p.rollNumber || p.department),
+      );
+
+    if (!sanitizedRows.length || !sanitizedRows[0].fullName || !sanitizedRows[0].email || !sanitizedRows[0].phone) {
+      toast.error("Leader details are required.");
       return;
     }
 
@@ -166,12 +181,9 @@ export function RegistrationForm() {
     try {
       const payload = {
         ...data,
-        teamSize: FIXED_TEAM_SIZE,
+        teamSize: sanitizedRows.length,
         leaderPhone: phone10(data.leaderPhone),
-        participants: rows.map((p) => ({
-          ...p,
-          phone: phone10(p.phone),
-        })),
+        participants: sanitizedRows,
       };
 
       const response = await fetch("/api/hackathon/register", {
@@ -295,8 +307,8 @@ export function RegistrationForm() {
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:col-span-2">
                   <p className="text-sm font-medium text-zinc-200">Team size</p>
                   <p className="mt-1 text-xs leading-relaxed text-zinc-500">
-                    Each team must have exactly <strong className="text-zinc-300">{FIXED_TEAM_SIZE} members</strong>{" "}
-                    (1 leader + 4 members). You will enter all {FIXED_TEAM_SIZE} in the next step.
+                    Team leader is required. You can add up to{" "}
+                    <strong className="text-zinc-300">{MAX_TEAM_SIZE} members</strong> including leader in the next step.
                   </p>
                 </div>
               </div>
@@ -314,7 +326,7 @@ export function RegistrationForm() {
               <div className="space-y-2">
                 <h2 className="text-2xl font-bold text-white">Participant details</h2>
                 <p className="text-zinc-400">
-                  Leader details are auto-filled from step 1. Add class roll no. for leader and full details for members.
+                  Leader details are auto-filled from step 1. Add leader roll no.; additional member rows are optional.
                 </p>
               </div>
 
@@ -337,7 +349,10 @@ export function RegistrationForm() {
                         disabled={index === 0}
                         error={errors.participants?.[index]?.fullName?.message}
                         {...register(`participants.${index}.fullName`, {
-                          required: "Full name is required",
+                          validate: (v) => {
+                            if (index === 0 && !String(v).trim()) return "Full name is required";
+                            return true;
+                          },
                         })}
                       />
                       <InputGroup
@@ -349,8 +364,12 @@ export function RegistrationForm() {
                         disabled={index === 0}
                         error={errors.participants?.[index]?.email?.message}
                         {...register(`participants.${index}.email`, {
-                          required: "Email is required",
-                          pattern: { value: /^\S+@\S+\.\S+$/i, message: "Invalid email" },
+                          validate: (v) => {
+                            const value = String(v || "").trim();
+                            if (index === 0 && !value) return "Email is required";
+                            if (value && !/^\S+@\S+\.\S+$/i.test(value)) return "Invalid email";
+                            return true;
+                          },
                         })}
                       />
                       <InputGroup
@@ -363,8 +382,12 @@ export function RegistrationForm() {
                         maxLength={10}
                         error={errors.participants?.[index]?.phone?.message}
                         {...register(`participants.${index}.phone`, {
-                          required: "Phone is required",
-                          validate: (v) => /^\d{10}$/.test(phone10(String(v))) || "Enter exactly 10 digits",
+                          validate: (v) => {
+                            const value = phone10(String(v || ""));
+                            if (index === 0 && !value) return "Phone is required";
+                            if (value && !/^\d{10}$/.test(value)) return "Enter exactly 10 digits";
+                            return true;
+                          },
                         })}
                       />
                       <InputGroup
@@ -374,7 +397,10 @@ export function RegistrationForm() {
                         required
                         error={errors.participants?.[index]?.rollNumber?.message}
                         {...register(`participants.${index}.rollNumber`, {
-                          required: "Class roll no. is required",
+                          validate: (v) => {
+                            if (index === 0 && !String(v || "").trim()) return "Class roll no. is required";
+                            return true;
+                          },
                         })}
                       />
                       <InputGroup
@@ -385,7 +411,10 @@ export function RegistrationForm() {
                         disabled={index === 0}
                         error={errors.participants?.[index]?.department?.message}
                         {...register(`participants.${index}.department`, {
-                          required: "Department is required",
+                          validate: (v) => {
+                            if (index === 0 && !String(v || "").trim()) return "Department is required";
+                            return true;
+                          },
                         })}
                       />
                     </div>

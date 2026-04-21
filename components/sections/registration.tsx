@@ -2,7 +2,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { RegistrationForm } from "@/components/forms/registration-form";
 
 const guidelines = [
-  "Each team must consist of exactly 5 members (1 leader + 4 members)",
+  "Team leader is required; additional team members are optional (up to 5 total)",
   "Only 11 teams will be shortlisted from the Computer Science Department",
   "Selection will be based on idea quality, clarity, and innovation",
   "Problem statements will be released, after which teams must start building their solution",
@@ -11,7 +11,7 @@ const guidelines = [
 ];
 
 const readyChecklist = [
-  "Leader and all member details (name, email, phone, class roll no., course)",
+  "Leader details (name, email, phone, class roll no., course) and optional member details",
   "Department and semester",
   "Project title, problem statement, and description",
   "Preferred domain and technologies",
