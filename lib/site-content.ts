@@ -104,28 +104,34 @@ export const siteContent = {
   },
   problemStatements: [
     {
-      title: "Campus Smart Mobility",
+      title: "MindMate AI – Mental Health Companion",
       description:
-        "Design a solution that helps students and staff optimize daily campus travel using real-time route visibility, crowd levels, and accessibility needs.",
-      track: "Smart Campus",
+        "AI chatbot for 24/7 emotional support, mood detection, journaling, crisis detection. Stack: React, Node.js, OpenAI API, MongoDB",
+      track: "Mental Health",
     },
     {
-      title: "Sustainable Event Operations",
+      title: "FinTrack – Expense Tracker",
       description:
-        "Build a system that tracks and reduces waste generated during college events through actionable sustainability insights and nudges.",
-      track: "Climate Tech",
+        "Finance dashboard with expense tracking, charts, budget planning, reports. Stack: React, Node.js, MongoDB, Chart.js",
+      track: "Finance",
     },
     {
-      title: "Student Wellbeing Navigator",
+      title: "CampusKart – Campus Marketplace",
       description:
-        "Create a privacy-first platform that helps students discover mental health support, peer communities, and timely wellbeing resources.",
-      track: "Health & Wellness",
+        "Buy/sell second-hand items on campus. Listings, chat, wishlist. Stack: React, Node.js, MongoDB, Socket.IO",
+      track: "Marketplace",
     },
     {
-      title: "Career Readiness Companion",
+      title: "SteganoSafe – Image Steganography",
       description:
-        "Develop an assistant that helps students map skills, discover opportunities, and build focused short-term career preparation plans.",
-      track: "EdTech",
+        "Hide encrypted messages inside images using LSB technique + private key. Stack: Python, Flask, OpenCV, Pillow",
+      track: "Security",
+    },
+    {
+      title: "GestureSense – Hand Gesture Recognition",
+      description:
+        "Real-time hand gesture detection via webcam → text output. Stack: Python, OpenCV, MediaPipe, Scikit-learn",
+      track: "AI / ML",
     },
   ],
   results: [
