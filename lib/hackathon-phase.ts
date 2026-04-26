@@ -6,7 +6,7 @@ export type HackathonPhase =
   | "completed";
 
 const IST_OFFSET_MINUTES = 330;
-const RELEASE_DATE = { year: 2026, monthIndex: 3, day: 26 };
+const RELEASE_DATE = { year: 2026, monthIndex: 3, day: 27 };
 const HACKATHON_DATE = { year: 2026, monthIndex: 3, day: 28 };
 const RESULTS_DATE = { year: 2026, monthIndex: 3, day: 29 };
 const COMPLETED_DATE = { year: 2026, monthIndex: 3, day: 30 };
@@ -20,8 +20,8 @@ const releaseStartMs = toIstUtcMs(
   RELEASE_DATE.year,
   RELEASE_DATE.monthIndex,
   RELEASE_DATE.day,
-  22,
-  30,
+  10,
+  0,
 );
 const hackathonStartMs = toIstUtcMs(
   HACKATHON_DATE.year,
